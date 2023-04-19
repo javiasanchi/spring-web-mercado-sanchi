@@ -35,4 +35,10 @@ public class ProductosController {
         return "info-producto";
 
     }
+    @GetMapping("productos/crear")
+    public String crearForm (Model model){
+        model.addAttribute("producto", new Productos());
+        return "form-productos";
+    }
+
 }
