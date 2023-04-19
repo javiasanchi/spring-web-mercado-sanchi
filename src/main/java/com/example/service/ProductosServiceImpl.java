@@ -18,11 +18,13 @@ public class ProductosServiceImpl implements ProductosService {
 
     @Override
     public List<Productos> findAll() {
+        log.info("Buscar todos los productos findAll()");
         return productosRepo.findAll();
     }
 
     @Override
     public Optional<Productos> findById(Long id) {
+        log.info("Buscar un producto por Id findById()");
         return productosRepo.findById(id);
     }
 }

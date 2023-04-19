@@ -2,9 +2,9 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
     <title>Gestor Mercados</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 </head>
@@ -24,42 +24,41 @@
                     <tr>
                         <th scope="col">Nombre</th>
                         <th scope="col">Descripcion</th>
-                        <th scope="col">Precio</th>
                         <th scope="col">Fabricado</th>
                         <th scope="col">Stock</th>
+                        <th scope="col">Precio</th>
                         <th scope="col">Acciones</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr th:each="producto :${productos}">
-                        <td th:text="${mercado.nombre}"></td>
-                        <td th:text="${mercado.descripcion}"></td>
-                        <td th:text="${mercado.telefono}"></td>
-                        <td th:text="${mercado.email}"></td>
-                        <td th:text="${mercado.ciudad}"></td>
-                        <td th:text="${mercado.numPuestos}"></td>
-                        <td>
+                        <td th:text="${productos.nombre}"></td>
+                        <td th:text="${productos.descripcion}"></td>
+                        <td th:text="${productos.fechaFab}"></td>
+                        <td th:text="${productos.stock}"></td>
+                        <td th:text="${productos.precio}"></td>
+                      <!--<td>
                             <h3><span th:if="${mercado.abierto}" class="badge text-bg-success">Abierto</span></h3>
                             <h3><span th:if="${mercado.abierto} == false" class="badge text-bg-danger">Cerrado</span></h3>
 
                         </td>
-                        <td>
-                            <a type="button" class="btn btn-primary" th:href="@{/main/{id}(id=${mercado.id})}">Ver</a>
-                            <a class="btn btn-success" th:href="@{/main/{id}/editar(id=${mercado.id})}">Editar</a>
-                            <a class="btn btn-danger" th:href="@{/main/{id}/borrar(id=${mercado.id})}">Borrar</a>
+                        <td>-->
+                            <a type="button" class="btn btn-primary" th:href="@{/productos/{id}(id=${productos.id})}">Ver</a>
+                            <a class="btn btn-success" th:href="@{/productos/{id}/editar(id=${productos.id})}">Editar</a>
+                            <a class="btn btn-danger" th:href="@{/productos/{id}/borrar(id=${productos.id})}">Borrar</a>
 
                         </td>
-                    </tr>
+                    </tr>-->
                     </tbody>
                 </table>
-            </div>
+            <!--</div>
             <div class="alert alert-info" role="alert" th:if="${#lists.isEmpty(mercados)}">
                 No hay elementos actualmente.
             </div>
             <div class="alert alert-danger" role="alert">
                 <div class="text-center" th:if="${#lists.size(mercados) > 0}">
                     Hay <span th:text="${#lists.size(mercados)}"></span> resultados.
-                </div>
+                </div>-->
             </div>
         </div>
     </div>
