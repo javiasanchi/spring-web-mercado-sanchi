@@ -31,20 +31,10 @@
             <div class="card" th:if="${error}== null">
                 <img src="https://dummyimage.com/300" class="card-img-top" alt="">
                 <div class="card-body">
-                    <h5 class="card-title" th:text="${producto.nombre}"></h5>
+                    <h5 class="card-title fs-2 fw-bold text-bg-primary" th:text="${producto.nombre}"></h5>
                     <p class="card-text" th:text="${producto.descripcion}"></p>
+                    <p class="card-text fs-5 fw-semibold text-bg-info" th:text="| Precio: ${producto.precio} '€'|"></p>
                 </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item" th:text="| Fabricado el : ${producto.fechaFab}|"></li>
-                    <li class="list-group-item" th:text="| Peso: ${producto.peso} grms.|"></li>
-                    <li class="list-group-item" th:text="| Cantidad : ${producto.cantidad} Unds.|"></li>
-                    <li class="list-group-item" th:text="| Caduca el : ${producto.caducidad}|"></li>
-                    <li class="list-group-item">
-                        <h3><span th:if="${producto.stock}" class="badge text-bg-success">Disponible</span></h3>
-                        <h3><span th:if="${producto.stock} == false" class="badge text-bg-danger">No Disponible</span></h3>
-                    </li>
-
-                </ul>
             </div>
             <div class="mt-3">
                 <a type="button" class="btn btn-primary" th:href="@{/productos}">Volver</a>
@@ -52,12 +42,36 @@
                 <a class="btn btn-danger" th:href="@{/productos/{id}/borrar(id=${producto.id})}">Borrar</a>
             </div>
         </div>
-        <div class="col-4">
+            <div class="col-4">
+                <div th:if="${error}">
+                    <div class="alert alert-danger" role="alert">
+                        <p th:text="${error}"></p>
+                        <a type="button" class="btn btn-primary" th:href="@{/productos}">Volver</a>
+                    </div>
+                </div>
+                <div class="card" th:if="${error}== null">
+                    <img src="https://dummyimage.com/300" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title fs-2 fw-bold text-bg-primary" th:text="${producto.nombre}"></h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item fw-bolder" th:text="| Cantidad : ${producto.cantidad} Unds.|"></li>
+                        <li class="list-group-item fw-bolder" th:text="| Fabricado el : ${#temporals.format(producto.fechaFab, 'dd-MM-yyyy')}|"></li>
+                        <li class="list-group-item fw-bolder" th:text="| Caduca el : ${#temporals.format(producto.caducidad , 'dd-MM-yyy')}|"></li>
+                    </ul>
+                    <li class="list-group-item">
+                        <button th:if="${producto.stock}" class="btn btn-primary btn-lg mt-2 mb-2" >Disponible</button>
+                        <span th:if="${producto.stock} == false" class="btn btn-danger btn-lg mt-2 mb-2">No disponible</span>
+                    </li>
+                </div>
+
+            </div>
         </div>
     </div>
 </div>
 </div>
 </div>
+
 <div th:replace="~{layaout :: footer}"></div>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
