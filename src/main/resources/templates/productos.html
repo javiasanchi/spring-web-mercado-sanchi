@@ -19,40 +19,43 @@
                 <a class="btn btn-info mb-3" th:href="@{/productos/crear}">Crear nuevo producto</a>
             </div>
             <div class="shadow-lg p-3 pt-5 mb-3 bg-body rounded">
-            <table class="table table-hover">
+                <table class="table table-hover">
 
-                <thead class="table-dark">
-                <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Fabricado</th>
-                    <th scope="col">Almacenado</th>
-                    <th scope="col">precio (€)</th>
-                    <th scope="col">Acciones</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="producto:${productos}">
-                    <td th:text="${producto.id}"></td>
-                    <td th:text="${producto.nombre}"></td>
-                    <td th:text="${producto.fechaFab}"></td>
-                    <td th:text="${producto.cantidad}"></td>
-                    <td th:text="${producto.precio}"></td>
-                    <td>
-                        <a type="button" class="btn btn-primary" th:href="@{/productos/{id}(id=${producto.id})}">Ver</a>
-                        <a class="btn btn-success" href="#">Editar</a>
-                        <a class="btn btn-danger" href="#">Borrar</a>
-                    </td>
-                </tr>
-
-                </tbody>
-
-            </table>
-
+                    <thead class="table-dark">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Fabricado</th>
+                        <th scope="col">Almacenado</th>
+                        <th scope="col">precio (€)</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="producto:${productos}">
+                        <td th:text="${producto.id}"></td>
+                        <td th:text="${producto.nombre}"></td>
+                        <td th:text="${producto.fechaFab}"></td>
+                        <td th:text="${producto.cantidad}"></td>
+                        <td th:text="${producto.precio}"></td>
+                        <td>
+                            <a type="button" class="btn btn-primary"
+                               th:href="@{/productos/{id}(id=${producto.id})}">Ver</a>
+                            <a class="btn btn-success" th:href="@{/productos/{id}/editar(id=${producto.id})}">Editar</a>
+                            <a class="btn btn-danger" th:href="@{/productos/{id}/borrar(id=${producto.id})}">Borrar</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="alert alert-info" role="alert" th:if="${#lists.isEmpty(productos)}">
+                    No hay elementos actualmente.
+                </div>
+                <div class="text-center" th:if="${#lists.size(productos) > 0}">
+                    Hay <span th:text="${#lists.size(productos)}"></span> resultados.
+                </div>
+            </div>
         </div>
-        <div class="col-1">
-
-        </div>
+        <div class="col-1"></div>
     </div>
 </div>
 

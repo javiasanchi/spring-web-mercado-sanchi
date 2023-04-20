@@ -13,7 +13,9 @@
 <div th:replace="~{layaout :: navbar2}"></div>
 <div class="container text-center">
     <div class="row">
-        <h3 class="mb-4">Crear/Editar producto</h3>
+        <h3 th:if="${producto.id}">Modificar producto <span th:text="${producto.id}"></span></h3>
+        <h3 th:if="${producto.id} == null">Crear nuevo Producto</h3>
+
         <div class="card-body mb-4">
             <a type="button" class="btn btn-primary" th:href="@{/productos}">Volver</a>
             <a class="btn btn-success" href="#">Editar</a>
@@ -38,19 +40,35 @@
                 </div>
                 <div class="mb-3">
                     <label for="descripcion" class="form-label">Indicar Descripción</label>
-                    <input type="text" class="form-control" id="descripcion" th:field="*{descripcion}">
+                    <textarea type="text" class="form-control" id="descripcion" th:field="*{descripcion}"></textarea>
                 </div>
                 <div class="input-group mb-3">
-                    <span class="input-group-text">$</span>
-                    <input type="number" class="form-control" th:field="*{peso}">
+                    <span class="input-group-text">€</span>
+                    <input type="number"step="0.1" class="form-control" id="precio" th:field="*{precio}">
                     <span class="input-group-text">.00</span>
                 </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">grms.</span>
+                    <input type="number"step="0.1" class="form-control" id="peso" th:field="*{peso}">
+                    <span class="input-group-text">.00</span>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Unds.</span>
+                    <input type="number" class="form-control" id="cantidad" th:field="*{cantidad}">
+                </div>
                 <div class="mb-3">
-                    <label for="peso" class="form-label">Indicar Descripción</label>
-                    <input type="number" class="form-control" id="peso" th:field="*{peso}">
+                    <label for="fechaFab" class="form-label">Fecha Fabricación</label>
+                    <input type="date" class="form-control" id="fechaFab" th:field="*{fechaFab}">
+                </div>
+                <div class="mb-3">
+                    <label for="caducidad" class="form-label">Fecha Caducidad</label>
+                    <input type="date" class="form-control" id="caducidad" th:field="*{caducidad}">
                 </div>
 
-                <button type="submit" class="btn btn-primary">Submit</button>
+
+
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                <a type="button" class="btn btn-primary" th:href="@{/productos}">Volver</a>
             </form>
         <div class="col-4">
         </div>

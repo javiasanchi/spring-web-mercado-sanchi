@@ -6,7 +6,9 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 import java.util.Optional;
@@ -35,10 +37,34 @@ public class ProductosController {
         return "info-producto";
 
     }
+
     @GetMapping("productos/crear")
-    public String crearForm (Model model){
+    public String crearForm(Model model) {
         model.addAttribute("producto", new Productos());
         return "form-productos";
+    }
+
+    @GetMapping("productos/{id}/editar")
+    public String editForm(Model model, @PathVariable Long id) {
+        Optional<Productos> productosOpt = productosServ.findById(id);
+        if (productosOpt.isPresent())
+            model.addAttribute("producto", productosOpt.get());
+        else
+            model.addAttribute("error", "PRODUCTO NO EXISTE O NO SE ENCUENTRA");
+
+        return "form-productos";
+    }
+
+    @PostMapping("productos")
+    public String save(@ModelAttribute Productos producto) {
+        productosServ.save(producto);
+        return "redirect:/productos";
+    }
+
+    @GetMapping("productos/{id}/borrar")
+    public String deleteById(@PathVariable Long id) {
+        productosServ.deleteById(id);
+        return "redirect:/productos";
     }
 
 }

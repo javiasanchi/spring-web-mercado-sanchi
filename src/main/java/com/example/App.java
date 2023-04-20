@@ -29,8 +29,7 @@ public class App {
         var prod10 = new Productos(null, "Morcilla de Burgos", "La morcilla de burgos es un embutido sin carne que se rellena con sangre coagulada (en la mayoría de los casos de cerdo), arroz extra, manteca de cerdo, sal y cebolla horcal; y es aderezada con especias para conseguir su sabor característico (principalmente pimienta y pimentón.", 140D, 12.29, LocalDate.of(2023, 1, 11), LocalDate.of(2024, 3, 17), 130, true);
 
         productosRepo.saveAll(List.of(prod1, prod2, prod3, prod4, prod5, prod6, prod7, prod8, prod9, prod10));
-
-
+        
     }
 
 }

@@ -27,4 +27,15 @@ public class ProductosServiceImpl implements ProductosService {
         log.info("Buscar un producto por Id findById()");
         return productosRepo.findById(id);
     }
+
+    @Override
+    public Productos save(Productos productos) {
+        return productosRepo.save(productos);
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        productosRepo.deleteById(id);
+
+    }
 }
