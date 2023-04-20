@@ -28,12 +28,26 @@
                     <a type="button" class="btn btn-primary" th:href="@{/productos}">Volver</a>
                 </div>
             </div>
-            <form th:if="${error} == null" th:action="@{/productos}" th:method="POST" th:object="Object">
+            <form th:if="${error} == null" th:action="@{/productos}" th:method="POST" th:object="${producto}">
+
+                <input type="hidden" id="id" name="id" th:field="*{id}" />
 
                 <div class="mb-3">
-                    <label for="Nombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="Nombre">
-                    <div id="Nombre" class="form-text"></div>
+                    <label for="Nombre" class="form-label">Indicar Nombre</label>
+                    <input type="text" class="form-control" id="Nombre" th:field="*{nombre}">
+                </div>
+                <div class="mb-3">
+                    <label for="descripcion" class="form-label">Indicar Descripción</label>
+                    <input type="text" class="form-control" id="descripcion" th:field="*{descripcion}">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">$</span>
+                    <input type="number" class="form-control" th:field="*{peso}">
+                    <span class="input-group-text">.00</span>
+                </div>
+                <div class="mb-3">
+                    <label for="peso" class="form-label">Indicar Descripción</label>
+                    <input type="number" class="form-control" id="peso" th:field="*{peso}">
                 </div>
 
                 <button type="submit" class="btn btn-primary">Submit</button>
