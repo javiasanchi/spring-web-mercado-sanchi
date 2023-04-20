@@ -18,8 +18,7 @@
 
         <div class="card-body mb-4">
             <a type="button" class="btn btn-primary" th:href="@{/productos}">Volver</a>
-            <a class="btn btn-success" href="#">Editar</a>
-            <a class="btn btn-danger" href="#">Borrar</a>
+            <a class="btn btn-danger" th:href="@{/productos/{id}/borrar(id=${producto.id})}">Borrar</a>
         </div>
         <div class="col-4">
         </div>
