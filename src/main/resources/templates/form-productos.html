@@ -42,18 +42,19 @@
                     <textarea type="text" class="form-control" id="descripcion" th:field="*{descripcion}"></textarea>
                 </div>
                 <div class="input-group mb-3">
-                    <span class="input-group-text">€</span>
+                    <label for="precio" class="form-label m-2">Indicar precio </label>
                     <input type="number"step="0.1" class="form-control" id="precio" th:field="*{precio}">
-                    <span class="input-group-text">.00</span>
+                    <span class="input-group-text">.00</span><span class="input-group-text">€</span>
                 </div>
                 <div class="input-group mb-3">
-                    <span class="input-group-text">grms.</span>
+                    <label for="peso" class="form-label m-2">Indicar peso del producto</label>
                     <input type="number"step="0.1" class="form-control" id="peso" th:field="*{peso}">
-                    <span class="input-group-text">.00</span>
+                    <span class="input-group-text">.00</span><span class="input-group-text">grms.</span>
                 </div>
                 <div class="input-group mb-3">
+                    <label for="peso" class="form-label m-3">Indicar cantidad de productos</label>
+                    <input type="number" step="10" class="form-control" id="cantidad" th:field="*{cantidad}">
                     <span class="input-group-text">Unds.</span>
-                    <input type="number" class="form-control" id="cantidad" th:field="*{cantidad}">
                 </div>
                 <div class="mb-3">
                     <label for="fechaFab" class="form-label">Fecha Fabricación</label>
@@ -62,6 +63,10 @@
                 <div class="mb-3">
                     <label for="caducidad" class="form-label">Fecha Caducidad</label>
                     <input type="date" class="form-control" id="caducidad" th:field="*{caducidad}">
+                </div>
+                <div class="form-check form-switch mb-3">
+                    <input class="form-check-input" type="checkbox" role="switch" id="stock" checked th:field="*{stock}">
+                    <label class="form-check-label" for="stock">Indicar disponibilidad</label>
                 </div>
 
 
