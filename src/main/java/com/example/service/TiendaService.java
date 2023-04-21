@@ -7,6 +7,11 @@ import java.util.Optional;
 
 public interface TiendaService {
     List<Tienda> findAll();
+
     Optional<Tienda> findById(Long id);
+
+    Tienda save(Tienda tiendas);
+
+    void deleteById(Long id);
 }
 

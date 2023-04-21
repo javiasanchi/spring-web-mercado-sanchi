@@ -13,7 +13,7 @@ import java.util.Optional;
 @Service
 @Slf4j
 public class TiendaServiceImpl implements TiendaService {
-    private  final TiendaRepository tiendaRepo;
+    private final TiendaRepository tiendaRepo;
 
     @Override
     public List<Tienda> findAll() {
@@ -25,5 +25,16 @@ public class TiendaServiceImpl implements TiendaService {
     public Optional<Tienda> findById(Long id) {
         log.info("Buscar tienda por Id findById()");
         return tiendaRepo.findById(id);
+    }
+
+    @Override
+    public Tienda save(Tienda tiendas) {
+        return tiendaRepo.save(tiendas);
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        tiendaRepo.deleteById(id);
+
     }
 }

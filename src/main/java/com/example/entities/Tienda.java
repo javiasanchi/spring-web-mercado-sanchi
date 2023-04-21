@@ -20,5 +20,9 @@ public class Tienda {
     private Integer empl;
     private Integer numPuesto;
     private Boolean abierta;
+    @Column(length = 9)
+    private Integer telefono;
+    @Column(unique = false)
+    private String email;
 
 }
