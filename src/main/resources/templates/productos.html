@@ -29,6 +29,7 @@
                         <th scope="col">Fabricado</th>
                         <th scope="col">Almacenado</th>
                         <th scope="col">precio (€)</th>
+                        <th scope="col">Tienda</th>
                         <th scope="col">Acciones</th>
                     </tr>
                     </thead>
@@ -39,6 +40,12 @@
                         <td th:text="${#temporals.format(producto.fechaFab, 'dd-MM-yyyy')}"></td>
                         <td th:text="${producto.cantidad}"></td>
                         <td th:text="${producto.precio}"></td>
+                        <td>
+                            <a class="btn btn-link btn-sm"
+                               th:if="${producto.tienda != null}"
+                               th:text="${producto.tienda.nombre}"
+                               th:href="@{/productos/tienda/{id}(id=${producto.tienda.id})}"></a>
+                        </td>
                         <td>
                             <a type="button" class="btn btn-primary"
                                th:href="@{/productos/{id}(id=${producto.id})}">Ver</a>
