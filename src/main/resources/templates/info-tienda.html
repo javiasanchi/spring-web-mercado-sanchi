@@ -14,14 +14,10 @@
 <div class="container text-center">
     <div class="row">
         <h3 class="mb-4">Detalle de tienda</h3>
-        <div class="card-body mb-4">
-            <a type="button" class="btn btn-primary" th:href="@{/tiendas}">Volver</a>
-            <a class="btn btn-success" th:href="@{/tiendas/{id}/editar(id=${tienda.id})}">Editar</a>
-            <a class="btn btn-danger" th:href="@{/tiendas/{id}/borrar(id=${tienda.id})}">Borrar</a>
+
+        <div class="col-1">
         </div>
-        <div class="col-4">
-        </div>
-        <div class="col-4">
+        <div class="col-5">
             <div th:if="${error}">
                 <div class="alert alert-danger" role="alert">
                     <p th:text="${error}"></p>
@@ -32,44 +28,48 @@
                 <img src="https://dummyimage.com/300" class="card-img-top" alt="">
                 <div class="card-body">
                     <h5 class="card-title fs-2 fw-bold text-bg-primary" th:text="${tienda.nombre}"></h5>
-                    <p class="card-text" th:text="${tienda.descrip}"></p>
-                </div>
-            </div>
-            <div class="mt-3">
-                <a type="button" class="btn btn-primary" th:href="@{/tiendas}">Volver</a>
-                <a class="btn btn-success" th:href="@{/tiendas/{id}/editar(id=${tienda.id})}">Editar</a>
-                <a class="btn btn-danger" th:href="@{/tiendas/{id}/borrar(id=${tienda.id})}">Borrar</a>
-            </div>
-        </div>
-        <div class="col-4">
-            <div th:if="${error}">
-                <div class="alert alert-danger" role="alert">
-                    <p th:text="${error}"></p>
-                    <a type="button" class="btn btn-primary" th:href="@{/tiendas}">Volver</a>
-                </div>
-            </div>
-            <div class="card" th:if="${error}== null">
-                <img src="https://dummyimage.com/300" class="card-img-top" alt="">
-                <div class="card-body">
-                    <h5 class="card-title fs-2 fw-bold text-bg-primary" th:text="${tienda.nombre}"></h5>
+                    <h5 class="card-text" th:text="${tienda.descrip}"></h5>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item fw-bolder" th:text="| Tiene : ${tienda.empl} empleados.|"></li>
-                    <li class="list-group-item fw-bolder" th:text="| Contacto tlfno. : ${tienda.telefono} |"></li>
-                    <li class="list-group-item fw-bolder" th:text="| Email : ${tienda.email} .|"></li>
-                    <li class="list-group-item fw-bolder" th:text="| Abre a las : ${#temporals.format(tienda.apertura, 'HH-mm')} horas|"></li>
-                    <li class="list-group-item fw-bolder" th:text="| Cierre a las: ${#temporals.format(tienda.cierre , 'HH-mm')} horas|"></li>
-                </ul>
-                <li class="list-group-item">
-                    <button th:if="${tienda.abierta}" class="btn btn-primary btn-lg mt-2 mb-2" >Abierta</button>
-                    <span th:if="${tienda.abierta} == false" class="btn btn-danger btn-lg mt-2 mb-2">Cerrada</span>
-                </li>
-            </div>
 
+                    <li class="list-group-item fw-bolder" th:text="| Contacto tlfno. : ${tienda.telefono} |"></li>
+                    <li class="list-group-item fw-bolder" th:text="| Email : ${tienda.email} |"></li>
+                </ul>
+            </div>
+        </div>
+
+    <div class="col-5">
+        <div th:if="${error}">
+            <div class="alert alert-danger" role="alert">
+                <p th:text="${error}"></p>
+                <a type="button" class="btn btn-primary" th:href="@{/tiendas}">Volver</a>
+            </div>
+        </div>
+        <div class="card" th:if="${error}== null">
+            <img src="https://dummyimage.com/300" class="card-img-top" alt="">
+            <div class="card-body">
+                <h5 class="card-title fs-2 fw-bold text-bg-primary" th:text="${tienda.nombre}"></h5>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item fw-bolder" th:text="| Tiene : ${tienda.empl} empleados|"></li>
+                <li class="list-group-item fw-bolder"
+                    th:text="| Abre a las : ${#temporals.format(tienda.apertura, 'HH-mm')} horas|"></li>
+                <li class="list-group-item fw-bolder"
+                    th:text="| Cierre a las: ${#temporals.format(tienda.cierre , 'HH-mm')} horas|"></li>
+            </ul>
+            <li class="list-group-item">
+                <button th:if="${tienda.abierta}" class="btn btn-primary btn-lg mt-2 mb-2">Abierta</button>
+                <span th:if="${tienda.abierta} == false" class="btn btn-danger btn-lg mt-2 mb-2">Cerrada</span>
+            </li>
         </div>
     </div>
-</div>
-</div>
+    <div class="mt-3">
+        <a type="button" class="btn btn-primary" th:href="@{/tiendas}">Volver</a>
+        <a class="btn btn-success" th:href="@{/tiendas/{id}/editar(id=${tienda.id})}">Editar</a>
+        <a class="btn btn-danger" th:href="@{/tiendas/{id}/borrar(id=${tienda.id})}">Borrar</a>
+    </div>
+    <div class="col-1">
+    </div>
 </div>
 </div>
 
