@@ -1,6 +1,7 @@
 package com.example.service;
 
 import com.example.entities.Productos;
+import com.example.entities.Tienda;
 import com.example.repository.ProductosRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -36,6 +37,12 @@ public class ProductosServiceImpl implements ProductosService {
     @Override
     public void deleteById(Long id) {
         productosRepo.deleteById(id);
+
+    }
+
+    @Override
+    public List<Tienda> findAllByTiendasId(Long id) {
+        return productosRepo.findAllByTiendaId(id);
 
     }
 }

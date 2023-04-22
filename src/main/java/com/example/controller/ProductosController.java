@@ -2,6 +2,7 @@ package com.example.controller;
 
 import com.example.entities.Productos;
 import com.example.service.ProductosService;
+import com.example.service.TiendaService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +19,7 @@ import java.util.Optional;
 public class ProductosController {
 
     private final ProductosService productosServ;
+    private final TiendaService tiendaServ;
 
     @GetMapping("productos")
     public String findAll(Model model) {
@@ -65,6 +67,14 @@ public class ProductosController {
     public String deleteById(@PathVariable Long id) {
         productosServ.deleteById(id);
         return "redirect:/productos";
+    }
+
+    @GetMapping("productos/tienda/{id}")
+    public String findByTiendasId(Model model, @PathVariable Long id) {
+        model.addAttribute("productos", productosServ.findAllByTiendasId(id));
+        return "productos";
+
+
     }
 
 }

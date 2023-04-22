@@ -13,5 +13,7 @@ public interface TiendaService {
     Tienda save(Tienda tiendas);
 
     void deleteById(Long id);
+
+
 }
 

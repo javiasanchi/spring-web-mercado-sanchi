@@ -1,6 +1,7 @@
 package com.example.service;
 
 import com.example.entities.Productos;
+import com.example.entities.Tienda;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,5 +16,6 @@ public interface ProductosService {
 
     void deleteById(Long id);
 
+    List<Tienda> findAllByTiendasId(Long id);
 
 }

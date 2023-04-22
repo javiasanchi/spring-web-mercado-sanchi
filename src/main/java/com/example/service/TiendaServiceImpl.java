@@ -37,4 +37,5 @@ public class TiendaServiceImpl implements TiendaService {
         tiendaRepo.deleteById(id);
 
     }
+
 }
