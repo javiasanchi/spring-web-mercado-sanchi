@@ -43,17 +43,19 @@ public class ProductosController {
     @GetMapping("productos/crear")
     public String crearForm(Model model) {
         model.addAttribute("producto", new Productos());
+        model.addAttribute("tiendas" ,tiendaServ.findAll());
         return "form-productos";
     }
 
     @GetMapping("productos/{id}/editar")
     public String editForm(Model model, @PathVariable Long id) {
         Optional<Productos> productosOpt = productosServ.findById(id);
-        if (productosOpt.isPresent())
+        if (productosOpt.isPresent()) {
             model.addAttribute("producto", productosOpt.get());
-        else
+            model.addAttribute("tiendas", tiendaServ.findAll());
+        }else {
             model.addAttribute("error", "PRODUCTO NO EXISTE O NO SE ENCUENTRA");
-
+        }
         return "form-productos";
     }
 

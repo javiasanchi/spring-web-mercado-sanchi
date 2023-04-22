@@ -70,11 +70,8 @@
                     <input class="form-check-input" type="checkbox" role="switch" id="stock" checked th:field="*{stock}">
                     <label class="form-check-label" for="stock">Indicar disponibilidad</label>
                 </div>
-                <select class="form-select">
-                    <option th:each="tienda : ${tiendas}" th:value="${tiendas.id}"></option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                <select aria-label="tiendas" class="form-select mb-3" th:field="*{tienda}">
+                    <option th:each="tienda : ${tiendas}" th:value="${tienda.id}" th:text="${tienda.nombre}"></option>
                 </select>
                 <button type="submit" class="btn btn-primary">Guardar</button>
                 <a type="button" class="btn btn-primary" th:href="@{/productos}">Volver</a>
