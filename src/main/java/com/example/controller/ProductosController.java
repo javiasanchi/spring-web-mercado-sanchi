@@ -71,7 +71,7 @@ public class ProductosController {
 
     @GetMapping("productos/tienda/{id}")
     public String findByTiendasId(Model model, @PathVariable Long id) {
-        model.addAttribute("productos", productosServ.findAllByTiendasId(id));
+        model.addAttribute("productos", productosServ.findAllByTiendaId(id));
         return "productos";
 
 

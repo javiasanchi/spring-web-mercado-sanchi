@@ -16,6 +16,6 @@ public interface ProductosService {
 
     void deleteById(Long id);
 
-    List<Tienda> findAllByTiendasId(Long id);
+    List<Productos> findAllByTiendaId(Long id);
 
 }

@@ -41,7 +41,7 @@ public class ProductosServiceImpl implements ProductosService {
     }
 
     @Override
-    public List<Tienda> findAllByTiendasId(Long id) {
+    public List<Productos> findAllByTiendaId(Long id) {
         return productosRepo.findAllByTiendaId(id);
 
     }

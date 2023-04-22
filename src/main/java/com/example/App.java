@@ -23,7 +23,7 @@ public class App {
         var tien1 = new Tienda(null, "Muñoz", "descripcion",3, 1, LocalTime.of(9,0), LocalTime.of(20,00),true, 916409022, "munoz@gmail.com");
         var tien2 = new Tienda(null, "Sara", "descripcion",2, 2,LocalTime.of(9,0),LocalTime.of(21,00) ,true, 916308031, "sara@gmail.com");
         var tien3 = new Tienda(null, "Luis y Àngel", "descripcion",2, 3,LocalTime.of(8,0),LocalTime.of(20,00), true, 916491516, "luisyangel@gmail.com");
-        var tien4 = new Tienda(null, "La Cabsña","descripcion", 1, 4,LocalTime.of(9,0),LocalTime.of(9,0), true, 916446541, "la cabana@gmail.com");
+        var tien4 = new Tienda(null, "La Cabaña","descripcion", 1, 4,LocalTime.of(9,0),LocalTime.of(9,0), true, 916446541, "la cabana@gmail.com");
         var tien5 = new Tienda(null, "De Ávila", "descripcion",2, 5, LocalTime.of(8,0),LocalTime.of(20,0),true, 916931291, "deavila@gmail.com");
         var tien6 = new Tienda(null, "Rafa y Ana", "descripcion",5, 6, LocalTime.of(9,0),LocalTime.of(20,0),false, 917865112, "rafayana@gmail.com");
         var tien7 = new Tienda(null, "La boutique del pan","descripcion", 2, 7,LocalTime.of(9,0) ,LocalTime.of(21,0),true, 916901871, "donpan@gmail.com");
