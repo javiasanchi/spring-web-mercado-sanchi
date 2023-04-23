@@ -29,6 +29,7 @@
                 <div class="card-body">
                     <h5 class="card-title fs-2 fw-bold text-bg-primary" th:text="${tienda.nombre}"></h5>
                     <h5 class="card-text" th:text="${tienda.descrip}"></h5>
+                    <h5 class="card-title fs-4 fw-bolder badge bg-warning text-wrap" style="width: 20rem;" th:text="| Fundada en ${#temporals.format(tienda.desde, 'yyyy')}|"></h5>
                 </div>
                 <ul class="list-group list-group-flush">
 
@@ -49,6 +50,7 @@
             <img src="https://dummyimage.com/300" class="card-img-top" alt="">
             <div class="card-body">
                 <h5 class="card-title fs-2 fw-bold text-bg-primary" th:text="${tienda.nombre}"></h5>
+
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item fw-bolder" th:text="| Tiene : ${tienda.empl} empleados|"></li>

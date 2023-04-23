@@ -13,7 +13,7 @@
 <div th:replace="~{layaout :: navbar2}"></div>
 <div class="container text-center">
     <div class="row">
-        <h3 th:if="${tienda.id}">Modificar tienda <span th:text="${tienda.id}"></span></h3>
+        <h3 th:if="${tienda.id}">Modificar tienda <span th:text="${tienda.nombre}"></span></h3>
 
         <h3 th:if="${tienda.id} == null">Crear nueva Tienda</h3>
 
@@ -37,10 +37,18 @@
 
                 <div class="mb-3">
                     <label for="Nombre" class="form-label">Indicar Nombre</label>
-                    <input type="text" class="form-control" id="Nombre" th:field="*{nombre}">
+                    <input type="text" class="form-control" placeholder="Indicar el nombre de la nueva tienda" id="Nombre" th:field="*{nombre}">
                 </div>
                 <div class="mb-3">
-                    <label for="empl" class="form-label">Número empleados Descripción</label>
+                    <label for="desde" class="form-label">Indicar Fecha Inicio</label>
+                    <input type="date" class="form-control" id="desde" th:field="*{desde}">
+                </div>
+                <div class="mb-3">
+                    <label for="descrip" class="form-label" >Descripción</label>
+                    <textarea type="text" class="form-control" placeholder="Deja una descripción de menos de 300 caracteres"id="descrip" th:field="*{descrip}"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="empl" class="form-label">Número empleados</label>
                     <input type="text" class="form-control" id="empl" th:field="*{empl}"></input>
                 </div>
                 <div class="input-group mb-3">
@@ -63,8 +71,8 @@
                     <input type="text" class="form-control" id="email" th:field="*{email}">
                 </div>
                 <div class="mb-3">
-                    <label for="abierta" class="form-label">Hora Apertura</label>
-                    <input type="time" class="form-control" id="abierta" th:field="*{abierta}">
+                    <label for="apertura" class="form-label">Hora Apertura</label>
+                    <input type="time" class="form-control" id="apertura" th:field="*{apertura}">
                 </div>
                 <div class="mb-3">
                     <label for="cerrado" class="form-label">Hora Cierre</label>

@@ -1,6 +1,8 @@
 package com.example.service;
 
+import com.example.entities.Productos;
 import com.example.entities.Tienda;
+import com.example.repository.ProductosRepository;
 import com.example.repository.TiendaRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -14,6 +16,7 @@ import java.util.Optional;
 @Slf4j
 public class TiendaServiceImpl implements TiendaService {
     private final TiendaRepository tiendaRepo;
+    private final ProductosService productosServ;
 
     @Override
     public List<Tienda> findAll() {
@@ -34,6 +37,11 @@ public class TiendaServiceImpl implements TiendaService {
 
     @Override
     public void deleteById(Long id) {
+        List<Productos> productos = productosServ.findAllByTiendaId(id);
+        for (Productos producto: productos) {
+            producto.setTienda(null);
+        }
+        productosServ.saveAll(productos);
         tiendaRepo.deleteById(id);
 
     }

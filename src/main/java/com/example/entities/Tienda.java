@@ -3,6 +3,7 @@ package com.example.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 @AllArgsConstructor
@@ -22,6 +23,7 @@ public class Tienda {
     private String descrip;
     private Integer empl;
     private Integer numPuesto;
+    private LocalDate desde;
     private LocalTime apertura;
     private LocalTime cierre;
     private Boolean abierta;

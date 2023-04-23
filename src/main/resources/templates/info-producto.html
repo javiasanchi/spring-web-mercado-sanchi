@@ -35,6 +35,12 @@
                     <p class="card-text" th:text="${producto.descripcion}"></p>
                     <p class="card-text fs-5 fw-semibold text-bg-info" th:text="| Precio: ${producto.precio} '€'|"></p>
                 </div>
+                    <ul>
+                        <li class="list-group-item">
+                               <span th:text="| De la tienda |"></span>
+                            <a class="btn btn-link sm" th:text= "${producto.tienda.nombre}" th:href="@{/tiendas/{id}(id=${producto.tienda.id})}"></a>
+                        </li>
+                    </ul>
             </div>
         </div>
         <div class="col-5">

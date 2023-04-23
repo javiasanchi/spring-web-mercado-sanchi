@@ -45,4 +45,10 @@ public class ProductosServiceImpl implements ProductosService {
         return productosRepo.findAllByTiendaId(id);
 
     }
+
+    @Override
+    public void saveAll(List<Productos> productos) {
+        productosRepo.saveAll(productos);
+
+    }
 }

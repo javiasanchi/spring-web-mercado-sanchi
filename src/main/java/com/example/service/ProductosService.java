@@ -18,4 +18,5 @@ public interface ProductosService {
 
     List<Productos> findAllByTiendaId(Long id);
 
+    void saveAll(List<Productos> productos);
 }

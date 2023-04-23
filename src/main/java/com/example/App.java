@@ -20,16 +20,16 @@ public class App {
 
         TiendaRepository tiendaRepo = context.getBean(TiendaRepository.class);
 
-        var tien1 = new Tienda(null, "Muñoz", "descripcion",3, 1, LocalTime.of(9,0), LocalTime.of(20,00),true, 916409022, "munoz@gmail.com");
-        var tien2 = new Tienda(null, "Sara", "descripcion",2, 2,LocalTime.of(9,0),LocalTime.of(21,00) ,true, 916308031, "sara@gmail.com");
-        var tien3 = new Tienda(null, "Luis y Àngel", "descripcion",2, 3,LocalTime.of(8,0),LocalTime.of(20,00), true, 916491516, "luisyangel@gmail.com");
-        var tien4 = new Tienda(null, "La Cabaña","descripcion", 1, 4,LocalTime.of(9,0),LocalTime.of(9,0), true, 916446541, "la cabana@gmail.com");
-        var tien5 = new Tienda(null, "De Ávila", "descripcion",2, 5, LocalTime.of(8,0),LocalTime.of(20,0),true, 916931291, "deavila@gmail.com");
-        var tien6 = new Tienda(null, "Rafa y Ana", "descripcion",5, 6, LocalTime.of(9,0),LocalTime.of(20,0),false, 917865112, "rafayana@gmail.com");
-        var tien7 = new Tienda(null, "La boutique del pan","descripcion", 2, 7,LocalTime.of(9,0) ,LocalTime.of(21,0),true, 916901871, "donpan@gmail.com");
-        var tien8 = new Tienda(null, "Bar el cisco", "descripcion",3, 8, LocalTime.of(9,0),LocalTime.of(20,30),true, 916654312, "elcisco@gmail.com");
-        var tien9 = new Tienda(null, "Frutas Carla", "descripcion",1, 9, LocalTime.of(8,30), LocalTime.of(20,30),true, 916431503, "carla@gmail.com");
-        var tien10 = new Tienda(null, "Beatriz e Hijos","descripcion", 2, 10, LocalTime.of(9,0),LocalTime.of(21,0),true, 916243123, "beatrizehijos@gmail.com");
+        var tien1 = new Tienda(null, "Muñoz", "descripcion",3, 1, LocalDate.of(2003, 4,18), LocalTime.of(9,0), LocalTime.of(20,00),true, 916409022, "munoz@gmail.com");
+        var tien2 = new Tienda(null, "Sara", "descripcion",2, 2,LocalDate.of(2011,8,27),LocalTime.of(9,0),LocalTime.of(21,00) ,true, 916308031, "sara@gmail.com");
+        var tien3 = new Tienda(null, "Luis y Àngel", "descripcion",2, 3,LocalDate.of(2000,6,21),LocalTime.of(8,0),LocalTime.of(20,00), true, 916491516, "luisyangel@gmail.com");
+        var tien4 = new Tienda(null, "La Cabaña","descripcion", 1, 4,LocalDate.of(1991,9,2),LocalTime.of(9,0),LocalTime.of(9,0), true, 916446541, "la cabana@gmail.com");
+        var tien5 = new Tienda(null, "De Ávila", "descripcion",2, 5, LocalDate.of(1996,11,26),LocalTime.of(8,0),LocalTime.of(20,0),true, 916931291, "deavila@gmail.com");
+        var tien6 = new Tienda(null, "Rafa y Ana", "descripcion",5, 6, LocalDate.of(2006,7,24),LocalTime.of(9,0),LocalTime.of(20,0),false, 917865112, "rafayana@gmail.com");
+        var tien7 = new Tienda(null, "La boutique del pan","descripcion", 2, 7,LocalDate.of(1999,12,3),LocalTime.of(9,0) ,LocalTime.of(21,0),true, 916901871, "donpan@gmail.com");
+        var tien8 = new Tienda(null, "Bar el cisco", "descripcion",3, 8, LocalDate.of(2003,5,6),LocalTime.of(9,0),LocalTime.of(20,30),true, 916654312, "elcisco@gmail.com");
+        var tien9 = new Tienda(null, "Frutas Carla", "descripcion",1, 9, LocalDate.of(1996,8,23),LocalTime.of(8,30), LocalTime.of(20,30),true, 916431503, "carla@gmail.com");
+        var tien10 = new Tienda(null, "Beatriz e Hijos","descripcion", 2, 10, LocalDate.of(2009,11,30),LocalTime.of(9,0),LocalTime.of(21,0),true, 916243123, "beatrizehijos@gmail.com");
 
         tiendaRepo.saveAll(List.of(tien1, tien2, tien3, tien4, tien5, tien6, tien7, tien8, tien9, tien10));
 
