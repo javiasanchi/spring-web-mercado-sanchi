@@ -2,6 +2,11 @@ package com.example.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.Hibernate;
+
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -19,8 +24,21 @@ public class Mercado {
     private String nombre;
     private String email;
     private Integer telefono;
-    @OneToOne
-    private Ubicacion ubicacion;
 
+    @ManyToMany
+    @ToString.Exclude
+    private Set<Ubicacion> ubicacions = new HashSet<>();
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        Mercado mercado = (Mercado) o;
+        return getId() != null && Objects.equals(getId(), mercado.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 }

@@ -9,6 +9,7 @@ import org.springframework.context.ApplicationContext;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
+import java.util.Set;
 
 @SpringBootApplication
 public class App {
@@ -18,19 +19,19 @@ public class App {
 
         UbicacionRepository ubicacionRepo = context.getBean(UbicacionRepository.class);
 
-        var ub1 = new Ubicacion(null, "San Luis", "Alcorcón", "Madrid");
-        var ub2 = new Ubicacion(null, "C Colón", "Alcorcón", "Madrid");
-        var ub3 = new Ubicacion(null, "C Mos1", "Alcorcón", "Madrid");
-        var ub4 = new Ubicacion(null, "C Mos1", "Alcorcón", "Madrid");
+        var ub1 = new Ubicacion(null, "San Luis", "Alcorcón", "Madrid", 28922);
+        var ub2 = new Ubicacion(null, "C Colón", "Alcorcón", "Madrid", 28918);
+        var ub3 = new Ubicacion(null, "C Mos1", "Móstoles", "Madrid", 29723);
+        var ub4 = new Ubicacion(null, "C Mos1", "Móstoles", "Madrid", 29729);
 
         ubicacionRepo.saveAll(List.of(ub1, ub2, ub3, ub4));
 
         MercadoRepository mercadoRepo = context.getBean(MercadoRepository.class);
 
-        var mer1 = new Mercado(null, "Veracruz", "veracruz@gmail.com", 916401122, ub1);
-        var mer2 = new Mercado(null, "Colón", "colon@gmail.com", 916401122, ub2);
-        var mer3 = new Mercado(null, "Mercd Mos1", "mos1@gmail.com", 916401122, ub3);
-        var mer4 = new Mercado(null, "Mercd Mos2", "mos2@gmail.com", 916401122, ub4);
+        var mer1 = new Mercado(null, "Veracruz", "veracruz@gmail.com", 916401122, Set.of(ub1, ub2, ub4));
+        var mer2 = new Mercado(null, "Colón", "colon@gmail.com", 916401122, Set.of(ub2, ub4));
+        var mer3 = new Mercado(null, "Mercd Mos1", "mos1@gmail.com", 916401122, Set.of(ub3, ub1));
+        var mer4 = new Mercado(null, "Mercd Mos2", "mos2@gmail.com", 916401122, Set.of(ub4, ub2));
 
         mercadoRepo.saveAll(List.of(mer1, mer2, mer3, mer4));
 
@@ -44,6 +45,7 @@ public class App {
         var cat6 = new Categoria(null, "Frutería");
 
         categoriaRepo.saveAll(List.of(cat1, cat2, cat3, cat4, cat5, cat6));
+
         TiendaRepository tiendaRepo = context.getBean(TiendaRepository.class);
 
         var tien1 = new Tienda(null, "Muñoz", "descripcion", 3, 1, LocalDate.of(2003, 4, 18), LocalTime.of(9, 0), LocalTime.of(20, 00), true, 916409022, "munoz@gmail.com", cat2);
