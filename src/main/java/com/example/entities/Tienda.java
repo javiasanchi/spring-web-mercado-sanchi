@@ -31,5 +31,7 @@ public class Tienda {
     private Integer telefono;
     @Column(unique = false)
     private String email;
+    @ManyToOne
+    private Categoria categoria;
 
 }
