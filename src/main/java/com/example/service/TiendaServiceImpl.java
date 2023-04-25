@@ -2,7 +2,6 @@ package com.example.service;
 
 import com.example.entities.Productos;
 import com.example.entities.Tienda;
-import com.example.repository.ProductosRepository;
 import com.example.repository.TiendaRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -31,6 +30,11 @@ public class TiendaServiceImpl implements TiendaService {
     }
 
     @Override
+    public List<Tienda> findAllByCategoria(String categoria) {
+        return tiendaRepo.findAllByCategoria(categoria);
+    }
+
+    @Override
     public Tienda save(Tienda tiendas) {
         return tiendaRepo.save(tiendas);
     }
@@ -38,7 +42,7 @@ public class TiendaServiceImpl implements TiendaService {
     @Override
     public void deleteById(Long id) {
         List<Productos> productos = productosServ.findAllByTiendaId(id);
-        for (Productos producto: productos) {
+        for (Productos producto : productos) {
             producto.setTienda(null);
         }
         productosServ.saveAll(productos);

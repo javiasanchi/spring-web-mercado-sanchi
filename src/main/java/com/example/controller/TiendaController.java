@@ -36,6 +36,13 @@ public class TiendaController {
         return "info-tienda";
     }
 
+    @GetMapping("tienda/categoria/{categoria}")
+    public String findAllByCategoria(Model model, @PathVariable String categoria) {
+        model.addAttribute("tiendas", tiendaServ.findAllByCategoria(categoria));
+        return "info-tienda";
+
+    }
+
     @GetMapping("tiendas/crear")
     public String crearForm(Model model) {
         model.addAttribute("tienda", new Tienda());

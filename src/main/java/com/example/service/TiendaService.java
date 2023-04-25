@@ -10,6 +10,8 @@ public interface TiendaService {
 
     Optional<Tienda> findById(Long id);
 
+    List<Tienda> findAllByCategoria(String categoria);
+
     Tienda save(Tienda tiendas);
 
     void deleteById(Long id);
