@@ -26,7 +26,7 @@ public class ProductosController {
         List<Productos> productos = productosServ.findAll();
         model.addAttribute("productos", productos);
         model.addAttribute("mensaje", "Listado de productos");
-        return "productos";
+        return "productos/productos";
     }
 
     @GetMapping("productos/{id}")
@@ -62,19 +62,19 @@ public class ProductosController {
     @PostMapping("productos")
     public String save(@ModelAttribute Productos producto) {
         productosServ.save(producto);
-        return "redirect:/productos";
+        return "redirect:/productos/productos";
     }
 
     @GetMapping("productos/{id}/borrar")
     public String deleteById(@PathVariable Long id) {
         productosServ.deleteById(id);
-        return "redirect:/productos";
+        return "redirect:productos/productos";
     }
 
     @GetMapping("productos/tienda/{id}")
     public String findByTiendasId(Model model, @PathVariable Long id) {
         model.addAttribute("productos", productosServ.findAllByTiendaId(id));
-        return "productos";
+        return "productos/productos";
 
 
     }
