@@ -279,3 +279,4 @@ values (99, 'Cheese - Colby', 'in est risus auctor sed tristique', 297.06, '2022
 insert into productos (id, nombre, descripcion, precio, fabricado, caducidad, cantidad, stock)
 values (100, 'Pasta - Canelloni', 'tristique fusce congue diam id ornare imperdiet sapien urna', 261.34, '2022-08-27',
         '2023-09-06', 133, true);
+

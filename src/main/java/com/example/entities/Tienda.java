@@ -22,7 +22,7 @@ public class Tienda {
     private String nombre;
     private String descrip;
     private Integer empl;
-    private Integer numPuesto;
+    private Integer puesto;
     private LocalDate desde;
     private LocalTime apertura;
     private LocalTime cierre;
