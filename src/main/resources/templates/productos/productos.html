@@ -7,6 +7,7 @@
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
     <title>Gestor Mercados</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link href="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.3/datatables.min.css" rel="stylesheet"/>
 </head>
 <body>
 
@@ -14,7 +15,6 @@
 <div class="container text-center">
     <div class="row">
         <div class="col-1">
-
         </div>
         <div class="col-10">
             <h1 class="mt-3" th:text="${mensaje}"></h1>
@@ -24,47 +24,49 @@
                         <div style="text-align: center">
                             <a class="btn btn-info mb-3" th:href="@{/productos/crear}">Crear nuevo producto</a>
                         </div>
-                        <thead class="table-dark">
-                        <tr>
-                            <th scope="col">Id</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Fabricado</th>
-                            <th scope="col">Almacenado</th>
-                            <th scope="col">precio (€)</th>
-                            <th scope="col">Tienda</th>
-                            <th scope="col">Acciones</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr th:each="producto:${productos}">
-                            <td th:text="${producto.id}"></td>
-                            <td th:text="${producto.nombre}"></td>
-                            <td th:text="${#temporals.format(producto.fechaFab, 'dd-MM-yyyy')}"></td>
-                            <td th:text="${producto.cantidad}"></td>
-                            <td th:text="${producto.precio}"></td>
-                            <td>
-                                <a class="btn btn-link btn-sm"
-                                   th:href="@{/productos/tienda/{id}(id=${producto.tienda.id})}"
-                                   th:if="${producto.tienda != null}"
-                                   th:text="${producto.tienda.nombre}"></a>
-                            </td>
-                            <td>
-                                <a class="btn btn-primary" th:href="@{/productos/{id}(id=${producto.id})}"
-                                   type="button">Ver</a>
-                                <a class="btn btn-success"
-                                   th:href="@{/productos/{id}/editar(id=${producto.id})}">Editar</a>
-                                <a class="btn btn-danger"
-                                   th:href="@{/productos/{id}/borrar(id=${producto.id})}">Borrar</a>
-                            </td>
-                        </tr>
-                        </tbody>
+                        <table class="table table-striped" id="example" style="width:100%">
+                            <thead class="table-dark">
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Fabricado</th>
+                                <th scope="col">Almacenado</th>
+                                <th scope="col">precio (€)</th>
+                                <th scope="col">Tienda</th>
+                                <th scope="col">Acciones</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="producto:${productos}">
+                                <td th:text="${producto.id}"></td>
+                                <td th:text="${producto.nombre}"></td>
+                                <td th:text="${#temporals.format(producto.fabricado, 'dd-MM-yyyy')}"></td>
+                                <td th:text="${producto.cantidad}"></td>
+                                <td th:text="${producto.precio}"></td>
+                                <td>
+                                    <a class="btn btn-link btn-sm"
+                                       th:href="@{/productos/tienda/{id}(id=${producto.tienda.id})}"
+                                       th:if="${producto.tienda != null}"
+                                       th:text="${producto.tienda.nombre}"></a>
+                                </td>
+                                <td>
+                                    <a class="btn btn-primary" th:href="@{/productos/{id}(id=${producto.id})}"
+                                       type="button">Ver</a>
+                                    <a class="btn btn-success"
+                                       th:href="@{/productos/{id}/editar(id=${producto.id})}">Editar</a>
+                                    <a class="btn btn-danger"
+                                       th:href="@{/productos/{id}/borrar(id=${producto.id})}">Borrar</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="alert alert-info" role="alert" th:if="${#lists.isEmpty(productos)}">
+                            No hay elementos actualmente.
+                        </div>
+                        <div class="text-center" th:if="${#lists.size(productos) > 0}">
+                            Hay <span th:text="${#lists.size(productos)}"></span> resultados.
+                        </div>
                     </table>
-                    <div class="alert alert-info" role="alert" th:if="${#lists.isEmpty(productos)}">
-                        No hay elementos actualmente.
-                    </div>
-                    <div class="text-center" th:if="${#lists.size(productos) > 0}">
-                        Hay <span th:text="${#lists.size(productos)}"></span> resultados.
-                    </div>
                 </div>
             </div>
         </div>
@@ -73,8 +75,14 @@
 </div>
 
 <div th:replace="~{layaout :: footer}"></div>
+
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
-
+<script src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.3/datatables.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#example').DataTable();
+    });
+</script>
 </body>
 </html>
