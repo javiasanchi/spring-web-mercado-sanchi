@@ -35,7 +35,7 @@
                     <tr th:each="tienda:${tiendas}">
                         <td th:text="${tienda.nombre}"></td>
                         <td th:text="${tienda.empl}"></td>
-                        <td th:text="${tienda.numPuesto}"></td>
+                        <td th:text="${tienda.puesto}"></td>
                         <td th:text="${tienda.telefono}"></td>
                         <td>
                             <a type="button" class="btn btn-primary" th:href="@{/tiendas/{id}(id=${tienda.id})}">Ver</a>

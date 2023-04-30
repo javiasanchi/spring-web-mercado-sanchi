@@ -23,7 +23,7 @@ public class Productos {
     private String descripcion;
     private Double peso;
     private Double precio;
-    private LocalDate fechaFab;
+    private LocalDate fabricado;
     private LocalDate caducidad;
     private Integer cantidad;
     private Boolean stock;
