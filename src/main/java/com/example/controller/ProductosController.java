@@ -32,12 +32,14 @@ public class ProductosController {
     @GetMapping("productos/{id}")
     public String findById(Model model, @PathVariable Long id) {
         Optional<Productos> productOpt = productosServ.findById(id);
-        if (productOpt.isPresent())
+        if (productOpt.isPresent()) {
             model.addAttribute("producto", productOpt.get());
-        else
             model.addAttribute("error", "PRODUCTO NO SE ENCUENTRA O NO EXISTE");
-        return "info-producto";
+            model.addAttribute("productos", productosServ.findAllByTiendaId(id));
+        } else {
 
+            return "info-producto";
+        }
     }
 
     @GetMapping("productos/crear")
